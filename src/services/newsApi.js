@@ -4,8 +4,8 @@ const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
 export const fetchNews = async () => {
   const response = await axios.get(
-    `https://gnews.io/api/v4/top-headlines?category=general&lang=en&country=in&max=10&apikey=${API_KEY}`
+    `https://newsdata.io/api/1/latest?apikey=${API_KEY}&country=in&language=en&category=top`
   );
 
-  return response.data.articles;
+  return response.data.results || [];
 };
